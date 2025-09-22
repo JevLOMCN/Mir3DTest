@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>UELib</RootNamespace>
+
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+
+    <!-- Add global symbols used throughout the codebase -->
+    <DefineConstants>$(DefineConstants);DECOMPILE;Forms</DefineConstants>
+  </PropertyGroup>
+
+  <!-- DEBUG -->
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DefineConstants>
+      $(DefineConstants);TRACE;DEBUG;
+      BINARYMETADATA;UE1;UE2;UE3;VENGEANCE;SWAT4;UNREAL2;INFINITYBLADE;BORDERLANDS2;GOW2;
+      DEBUG_TEST;APB;SPECIALFORCE2;XIII;SINGULARITY;THIEF_DS;DEUSEX_IW;BORDERLANDS;MIRRORSEDGE;
+      BIOSHOCK;HAWKEN;UT;DISHONORED;REMEMBERME;ALPHAPROTOCOL;VANGUARD;TERA;MKKE;TRANSFORMERS;
+      XCOM2;DCUO;AA2;SPELLBORN;BATMAN;MOH;ROCKETLEAGUE
+    </DefineConstants>
+    <Optimize>false</Optimize>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <!-- RELEASE -->
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DefineConstants>
+      $(DefineConstants);TRACE;
+      BINARYMETADATA;UE1;UE2;UE3;VENGEANCE;SWAT4;UNREAL2;INFINITYBLADE;BORDERLANDS2;GOW2;
+      APB;SPECIALFORCE2;XIII;SINGULARITY;THIEF_DS;DEUSEX_IW;BORDERLANDS;MIRRORSEDGE;BIOSHOCK;
+      HAWKEN;UT;DISHONORED;REMEMBERME;ALPHAPROTOCOL;VANGUARD;TERA;MKKE;TRANSFORMERS;XCOM2;DCUO;
+      AA2;SPELLBORN;BATMAN;MOH;ROCKETLEAGUE
+    </DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <!-- Optional: DecompileDebug flavor -->
+  <PropertyGroup Condition="'$(Configuration)'=='DecompileDebug'">
+    <DefineConstants>
+      $(DefineConstants);TRACE;DEBUG;DEBUG_TEST;DEBUG_TOKENPOSITIONS;DEBUG_HIDDENTOKENS;DEBUG_NESTS;DEBUG_FUNCTIONINFO;
+      UE1;UE2;UE3;VENGEANCE;SWAT4;UNREAL2;INFINITYBLADE;BORDERLANDS2;GOW2;APB;SPECIALFORCE2;XIII;SINGULARITY;THIEF_DS;
+      DEUSEX_IW;BORDERLANDS;MIRRORSEDGE;BIOSHOCK;HAWKEN;UT;DISHONORED;REMEMBERME;ALPHAPROTOCOL;VANGUARD;TERA;MKKE;
+      TRANSFORMERS;XCOM2;DCUO;AA2;SPELLBORN;BATMAN;MOH
+    </DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <!-- NuGet packages you kept (NAudio packages removed) -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+    <PackageReference Include="NVorbis" Version="0.10.5" />
+    <PackageReference Include="System.Buffers" Version="4.6.1" />
+    <PackageReference Include="System.Memory" Version="4.6.3" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.6.1" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+    <PackageReference Include="System.Security.AccessControl" Version="6.0.1" />
+    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" />
+  </ItemGroup>
+
+  <!-- Project references -->
+  <ItemGroup>
+    <ProjectReference Include="..\UpkManager.Dds\UpkManager.Dds.csproj"
+                      Condition="Exists('..\UpkManager.Dds\UpkManager.Dds.csproj')" />
+    <ProjectReference Include="..\UpkManager.Lzo\UpkManager.Lzo.csproj" />
+  </ItemGroup>
+</Project>

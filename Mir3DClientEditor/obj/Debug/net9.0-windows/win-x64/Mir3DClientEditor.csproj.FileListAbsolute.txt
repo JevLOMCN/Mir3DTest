@@ -1,0 +1,128 @@
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.csproj.AssemblyReference.cache
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Dialogs.CustomMessageBox.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Dialogs.FImageViewerDialog.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FMain.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FMainEditor.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.CSVGridEditorControl.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.FPropertyEditor.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.INIGridEditorControl.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.MPQExplorerControl.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.PropertyGridEditorControl.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.UnrealEditorControl.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FSearch.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FSplash.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FSyncClientTexts.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.MainEditorControl.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Properties.Resources.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Views.ImageViewer.resources
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.csproj.GenerateResource.cache
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.GeneratedMSBuildEditorConfig.editorconfig
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.AssemblyInfoInputs.cache
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.AssemblyInfo.cs
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.csproj.CoreCompileInputs.cache
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.sourcelink.json
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.exe
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\lib32\lzo2_32.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\lib32\msvcr100.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\lib64\lzo2_64.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\lib64\msvcr100.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\StormLib.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.deps.json
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.runtimeconfig.json
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.pdb
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\CsvHelper.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Asio.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Core.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Midi.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Vorbis.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Wasapi.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.WinForms.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.WinMM.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Newtonsoft.Json.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NVorbis.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\ICSharpCode.SharpZipLib.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\SunnyUI.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\SunnyUI.Common.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Eliot.UELib.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DCrypto.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\StormLibSharp.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\UpkManager.Dds.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\UpkManager.Lzo.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\WriteableBitmapEx.Wpf.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Eliot.UELib.pdb
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Eliot.UELib.dll.config
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DCrypto.pdb
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\StormLibSharp.pdb
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\UpkManager.Dds.pdb
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\UpkManager.Lzo.pdb
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\WriteableBitmapEx.Wpf.pdb
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\WriteableBitmapEx.Wpf.xml
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DCli.151CCB64.Up2Date
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.dll
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.pdb
+G:\Mir3DEMU\GitHub\MoonSpirit\mir-eternal\Mir3DEditor\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.genruntimeconfig.cache
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.csproj.AssemblyReference.cache
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Dialogs.CustomMessageBox.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Dialogs.FImageViewerDialog.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FMain.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FMainEditor.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.CSVGridEditorControl.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.FPropertyEditor.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.INIGridEditorControl.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.MPQExplorerControl.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.PropertyGridEditorControl.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FormValueEditors.UnrealEditorControl.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FSearch.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FSplash.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.FSyncClientTexts.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.MainEditorControl.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Properties.Resources.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Views.ImageViewer.resources
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.csproj.GenerateResource.cache
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.GeneratedMSBuildEditorConfig.editorconfig
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.AssemblyInfoInputs.cache
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.AssemblyInfo.cs
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.csproj.CoreCompileInputs.cache
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.sourcelink.json
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.exe
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\lib32\lzo2_32.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\lib32\msvcr100.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\lib64\lzo2_64.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\lib64\msvcr100.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\StormLib.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.dll.config
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.deps.json
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.runtimeconfig.json
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DClientEditor.pdb
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\CsvHelper.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Asio.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Core.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Midi.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Vorbis.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.Wasapi.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.WinForms.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NAudio.WinMM.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Newtonsoft.Json.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\NVorbis.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\ICSharpCode.SharpZipLib.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\System.ComponentModel.Composition.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Eliot.UELib.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DCrypto.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\StormLibSharp.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\UpkManager.Dds.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\UpkManager.Lzo.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Eliot.UELib.pdb
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Eliot.UELib.dll.config
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\Mir3DCrypto.pdb
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\StormLibSharp.pdb
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\UpkManager.Dds.pdb
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\bin\Debug\net9.0-windows\win-x64\UpkManager.Lzo.pdb
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DCli.151CCB64.Up2Date
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.dll
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.pdb
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.genruntimeconfig.cache
+G:\Mir3DEMU\GitHub\Eternal Legend Latest\Eternal-Legend\Tools\Mir3DClientEditor\obj\Debug\net9.0-windows\win-x64\Mir3DClientEditor.Dialogs.ExportFiles.resources

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Dialogs\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\ExportFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\FImageViewerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FMainEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormValueEditors\BaseGridEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormValueEditors\CSVGridEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormValueEditors\CustomGridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="FormValueEditors\FPropertyEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormValueEditors\INIGridEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormValueEditors\MPQExplorerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormValueEditors\PropertyGridEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormValueEditors\UnrealEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FSyncClientTexts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\ImageViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
