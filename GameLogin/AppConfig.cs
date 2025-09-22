@@ -21,9 +21,9 @@ namespace GameLogin
 
         public string AccountServerAddressIP { get; set; } = "127.0.0.1";
         public ushort AccountServerAddressPort { get; set; } = 8000;
-
         public string AccountName { get; set; } = "";
         public string ServerName { get; set; } = "";
+        public string PatchUrl { get; set; } = "";
 
         public static void Load()
         {

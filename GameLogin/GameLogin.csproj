@@ -34,5 +34,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\GamePacket\GamePackets.csproj" />
+		<ProjectReference Include="..\Tools\Mir3DCrypto\Mir3DCrypto.csproj" />
+		<ProjectReference Include="..\Tools\StormLibSharp\StormLibSharp.csproj" />
 	</ItemGroup>
 </Project>

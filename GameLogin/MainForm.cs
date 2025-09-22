@@ -2,17 +2,107 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
+using System.Text.Json;
+using System.Windows.Forms;
+using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using StormLibSharp;
+using Mir3DCrypto;
 
 namespace GameLogin
 {
+
+    #region Patcher Stuff
+    internal sealed class PListFileEntry { public string path { get; set; } = ""; public long size { get; set; } }
+    internal sealed class PListPakEntry
+    {
+        public string pak { get; set; } = "";
+        public string pakPath { get; set; } = "";
+        public long pakSize { get; set; }
+        public int fileCount { get; set; }
+        public long totalSize { get; set; }
+        public List<PListFileEntry> files { get; set; } = new();
+    }
+    internal sealed class PListRoot
+    {
+        public string root { get; set; } = "MMOGame";
+        public int pakCount { get; set; }
+        public List<PListPakEntry> paks { get; set; } = new();
+    }
+
+    internal static class PatcherConfig
+    {
+        public static string RemotePatchBaseUrl = "https://example.com/Patch"; // TODO set real URL
+        public static string Root => AppDomain.CurrentDomain.BaseDirectory;
+        public static string LocalPlistPath => Path.Combine(Root, "MMOGame", "Patch", "PList.json");
+        public static string TempDir => Path.Combine(Root, "MMOGame", "Patch", "temp_downloads");
+    }
+
+    internal static class PathUtil
+    {
+        public static string N(string p) => (p ?? "").Replace('\\', '/').Trim();
+        public static string Disk(string p) => (p ?? "").Replace('/', '\\');
+        public static string UrlEscape(string p)
+        {
+            if (string.IsNullOrEmpty(p)) return string.Empty;
+            var segments = p.Replace('\\', '/').Split('/');
+            for (int i = 0; i < segments.Length; i++)
+                segments[i] = Uri.EscapeDataString(segments[i]);
+            return string.Join("/", segments);
+        }
+    }
+
+    internal static class HttpX
+    {
+        public static readonly HttpClient Client = new HttpClient();
+        public static async Task<string> GetStringAsync(string url)
+        {
+            using var r = await Client.GetAsync(url);
+            r.EnsureSuccessStatusCode();
+            return await r.Content.ReadAsStringAsync();
+        }
+        public static async Task DownloadToFileAsync(string url, string filePath)
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
+            using var r = await Client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+            r.EnsureSuccessStatusCode();
+            await using var s = await r.Content.ReadAsStreamAsync();
+            await using var f = File.Create(filePath);
+            await s.CopyToAsync(f);
+        }
+    }
+
+    internal static class PakEditor
+    {
+        public static bool ReplaceFileInPak(string pakDiskPath, string internalPath, string sourceFileOnDisk)
+        {
+            string mpqPath = PathUtil.Disk(internalPath).TrimStart('\\');
+            try
+            {
+                byte[] data = File.ReadAllBytes(sourceFileOnDisk);
+                data = Crypto.Encrypt(data); // encrypt before write (matches your editor)
+
+                using var archive = new MpqArchive(pakDiskPath, FileAccess.ReadWrite);
+
+                uint flags = 0;
+                try { using var existing = archive.OpenFile(mpqPath); flags = existing.GetFlags(); } catch { /* not present */ }
+
+                archive.FileCreateFile(mpqPath, flags, data);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"ReplaceFileInPak error: {ex.Message}");
+                return false;
+            }
+        }
+    }
+    #endregion
     public partial class MainForm : Form
     {
         private Point offset; // Used to store the offset between the mouse cursor and the form's location
@@ -808,130 +898,84 @@ namespace GameLogin
             var p = ConfigButton.PointToClient(Cursor.Position);
             tip.Show("Open Config", ConfigButton, p.X + 12, p.Y + 12, 2500);
         }
-    }
         #endregion
 
-
-        #region Patcher
-        using System.Net.Http;
-using System.Text.Json;
-using System.Diagnostics;
-
-static class PatcherConfig
-    {
-        // CHANGE ME: URL of the folder that hosts PList.json and the file tree
-        public static string RemotePatchBaseUrl = "https://example.com/Patch";
-
-        public static string Root => AppDomain.CurrentDomain.BaseDirectory;
-        public static string LocalPlistPath => Path.Combine(Root, "MMOGame", "Patch", "PList.json");
-        public static string TempDir => Path.Combine(Root, "MMOGame", "Patch", "temp_downloads");
-    }
-
-    sealed class PListFileEntry { public string path { get; set; } = ""; public long size { get; set; } }
-    sealed class PListPakEntry
-    {
-        public string pak { get; set; } = "";      // e.g. "00000.pak"
-        public string pakPath { get; set; } = "";  // e.g. "MMOGame\\CookedPC\\00000.pak"
-        public long pakSize { get; set; }
-        public int fileCount { get; set; }
-        public long totalSize { get; set; }
-        public List<PListFileEntry> files { get; set; } = new();
-    }
-    sealed class PListRoot
-    {
-        public string root { get; set; } = "MMOGame";
-        public int pakCount { get; set; }
-        public List<PListPakEntry> paks { get; set; } = new();
-    }
-
-    static class PathUtil
-    {
-        public static string N(string p) => (p ?? "").Replace('\\', '/').Trim();
-        public static string Disk(string p) => (p ?? "").Replace('/', '\\');
-        public static string UrlEscape(string p) => Uri.EscapeUriString(p.Replace('\\', '/'));
-    }
-
-    static class HttpX
-    {
-        public static readonly HttpClient Client = new HttpClient();
-        public static async Task<string> GetStringAsync(string url)
+        private async void PatchClientButton_Click(object sender, EventArgs e)
         {
-            using var r = await Client.GetAsync(url);
-            r.EnsureSuccessStatusCode();
-            return await r.Content.ReadAsStringAsync();
-        }
-        public static async Task DownloadToFileAsync(string url, string filePath)
-        {
-            Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
-            using var r = await Client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
-            r.EnsureSuccessStatusCode();
-            await using var s = await r.Content.ReadAsStreamAsync();
-            await using var f = File.Create(filePath);
-            await s.CopyToAsync(f);
-        }
-    }
+            static bool TryGetPatchBaseUri(out Uri baseUri)
+            {
+                var raw = AppConfig.Current?.PatchUrl?.Trim();
+                if (!string.IsNullOrEmpty(raw) &&
+                    Uri.TryCreate(raw, UriKind.Absolute, out baseUri) &&
+                    (baseUri.Scheme == Uri.UriSchemeHttp || baseUri.Scheme == Uri.UriSchemeHttps))
+                    return true;
 
-    // === Hook into your Mir3DEditor writer ===
-    // Implement this using your editor’s classes that already open/replace/save .pak contents.
-    static class PakEditor
-    {
-        /// <summary>
-        /// Replace (or add) an internal file inside a .pak with bytes from 'sourceFileOnDisk'.
-        /// Return true on success.
-        /// </summary>
-        public static bool ReplaceFileInPak(string pakDiskPath, string internalPath, string sourceFileOnDisk)
-        {
-            // TODO: Map this to Mir3DEditor:
-            // open pakDiskPath, replace internalPath with bytes from sourceFileOnDisk, save.
-            // Something like:
-            // using (var pak = Mir3DEditor.PakArchive.Open(pakDiskPath))
-            // {
-            //     pak.Replace(Normalize(internalPath), File.ReadAllBytes(sourceFileOnDisk));
-            //     pak.Save();
-            //     return true;
-            // }
+                baseUri = null!;
+                return false;
+            }
 
-            // For now throw so you remember to wire it:
-            throw new NotImplementedException("Wire this to Mir3DEditor's write API for UE3 pak.");
-        }
+            static string Norm(string p) => (p ?? "").Replace('\\', '/').Trim();
+            static string Disk(string p) => (p ?? "").Replace('/', '\\');
 
-        private void PatchClientButton_Click(object sender, EventArgs e)
-        {
             try
             {
-                // 1) Load local plist
-                var localPlistPath = PatcherConfig.LocalPlistPath;
+                if (!TryGetPatchBaseUri(out var baseUri))
+                {
+                    MessageBox.Show(
+                        "Patch URL is not set or invalid in Mir3dConfig.json.\r\n" +
+                        "Set \"PatchUrl\": \"https://host/folder\" and try again.",
+                        "Patch", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string patchDir = Path.Combine(baseDir, "MMOGame", "Patch");
+                string tempDir = Path.Combine(patchDir, "temp_downloads");
+                string localPlistPath = Path.Combine(patchDir, "PList.json");
+
+                // --- Clean temp_downloads at start ---
+                try
+                {
+                    if (Directory.Exists(tempDir)) Directory.Delete(tempDir, recursive: true);
+                }
+                catch { /* ignore */ }
+                Directory.CreateDirectory(tempDir);
+
+                // --- Load local PList ---
                 if (!File.Exists(localPlistPath))
                 {
-                    MessageBox.Show($"Local PList.json not found:\r\n{localPlistPath}");
+                    MessageBox.Show($"Local PList.json not found:\r\n{localPlistPath}", "Patch",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 var localJson = await File.ReadAllTextAsync(localPlistPath);
-                var local = JsonSerializer.Deserialize<PListRoot>(localJson) ?? new PListRoot();
+                var local = System.Text.Json.JsonSerializer.Deserialize<PListRoot>(localJson) ?? new PListRoot();
 
-                // 2) Load remote plist
-                var remotePlistUrl = $"{PatcherConfig.RemotePatchBaseUrl.TrimEnd('/')}/PList.json";
-                var remoteJson = await HttpX.GetStringAsync(remotePlistUrl);
-                var remote = JsonSerializer.Deserialize<PListRoot>(remoteJson) ?? new PListRoot();
+                // --- Fetch remote PList ---
+                using var http = new System.Net.Http.HttpClient();
+                var plistUri = new Uri(baseUri, "PList.json");
+                using var plistResp = await http.GetAsync(plistUri, System.Net.Http.HttpCompletionOption.ResponseHeadersRead);
+                plistResp.EnsureSuccessStatusCode();
+                var remoteJson = await plistResp.Content.ReadAsStringAsync();
+                var remote = System.Text.Json.JsonSerializer.Deserialize<PListRoot>(remoteJson) ?? new PListRoot();
 
-                // 3) Build diff (by internal path + size)
-                var localPaks = local.paks.ToDictionary(p => PathUtil.N(p.pakPath), StringComparer.OrdinalIgnoreCase);
+                // --- Build diff (path + size) ---
+                var localPaks = local.paks.ToDictionary(p => Norm(p.pakPath), StringComparer.OrdinalIgnoreCase);
                 var toDownload = new List<(PListPakEntry pak, PListFileEntry file)>();
 
                 foreach (var rpak in remote.paks)
                 {
-                    var rKey = PathUtil.N(rpak.pakPath);
+                    var rKey = Norm(rpak.pakPath);
                     if (!localPaks.TryGetValue(rKey, out var lpak))
                     {
-                        // Entire pak missing locally -> treat all files as changed
                         foreach (var f in rpak.files) toDownload.Add((rpak, f));
                         continue;
                     }
 
-                    var lFiles = lpak.files.ToDictionary(f => PathUtil.N(f.path), StringComparer.OrdinalIgnoreCase);
+                    var lFiles = lpak.files.ToDictionary(f => Norm(f.path), StringComparer.OrdinalIgnoreCase);
                     foreach (var rf in rpak.files)
                     {
-                        var key = PathUtil.N(rf.path);
+                        var key = Norm(rf.path);
                         if (!lFiles.TryGetValue(key, out var lf) || lf.size != rf.size)
                             toDownload.Add((rpak, rf));
                     }
@@ -939,101 +983,97 @@ static class PatcherConfig
 
                 if (toDownload.Count == 0)
                 {
-                    MessageBox.Show("Client is already up to date.");
+                    // Still make sure we refresh the local PList to the remote one for future runs.
+                    try { await File.WriteAllTextAsync(localPlistPath, remoteJson); } catch { /* ignore */ }
+                    MessageBox.Show("Client is already up to date.", "Patch",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-                var confirm = MessageBox.Show(
-                    $"Found {toDownload.Count} updated files.\r\nDownload and patch now?",
-                    "Patch", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (confirm != DialogResult.Yes) return;
-
-                Directory.CreateDirectory(PatcherConfig.TempDir);
+                if (MessageBox.Show(
+                        $"Found {toDownload.Count} updated files.\r\nDownload and patch now?",
+                        "Patch", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    return;
 
                 int ok = 0, fail = 0;
-                var sb = new StringBuilder();
+                var touchedPaks = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-                // 4) Download and apply
                 foreach (var (pak, file) in toDownload)
                 {
-                    // Remote:  <base>/<pakPath>/<internal-path>
-                    // Example: https://host/Patch/MMOGame/CookedPC/00001.pak/achievement.txt
-                    string remoteFileUrl =
-                        $"{PatcherConfig.RemotePatchBaseUrl.TrimEnd('/')}/" +
-                        $"{PathUtil.UrlEscape(PathUtil.N(pak.pakPath))}/" +
-                        $"{PathUtil.UrlEscape(PathUtil.N(file.path))}";
+                    // Build remote file URL: PatchUrl/<pakPath>/<internal-path>
+                    // Use Uri to combine safely.
+                    var pakFolderUri = new Uri(baseUri, Norm(pak.pakPath) + "/");
+                    var fileUri = new Uri(pakFolderUri, Norm(file.path));
 
-                    // Save temp with unique name to avoid collisions
-                    string tempLocal = Path.Combine(PatcherConfig.TempDir, $"{Guid.NewGuid():N}_{Path.GetFileName(file.path)}");
+                    string tmp = Path.Combine(tempDir, $"{Guid.NewGuid():N}_{Path.GetFileName(file.path)}");
 
                     try
                     {
-                        await HttpX.DownloadToFileAsync(remoteFileUrl, tempLocal);
+                        using (var r = await http.GetAsync(fileUri, System.Net.Http.HttpCompletionOption.ResponseHeadersRead))
+                        {
+                            r.EnsureSuccessStatusCode();
+                            await using var inS = await r.Content.ReadAsStreamAsync();
+                            await using var outF = File.Create(tmp);
+                            await inS.CopyToAsync(outF);
+                        }
 
-                        // Map pak.pakPath to an actual file on disk within your client
-                        string pakOnDisk = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, PathUtil.Disk(pak.pakPath));
+                        string pakOnDisk = Path.Combine(baseDir, Disk(pak.pakPath));
                         if (!File.Exists(pakOnDisk))
                         {
                             fail++;
-                            sb.AppendLine($"Missing pak on disk: {pakOnDisk}");
-                            SafeDelete(tempLocal);
                             continue;
                         }
 
-                        // Optional: backup once per pak (first time we touch it)
-                        EnsureBackupOnce(pakOnDisk);
+                        // Backup each pak once
+                        if (!touchedPaks.Contains(pakOnDisk))
+                        {
+                            touchedPaks.Add(pakOnDisk);
+                            var bak = pakOnDisk + ".bak";
+                            try { if (!File.Exists(bak)) File.Copy(pakOnDisk, bak, overwrite: false); } catch { }
+                        }
 
-                        // 5) Replace inside the pak (UE3 pathing stays as-is)
-                        bool replaced = PakEditor.ReplaceFileInPak(pakOnDisk, file.path, tempLocal);
-                        if (replaced) { ok++; sb.AppendLine($"Patched: {file.path} -> {pak.pak}"); }
-                        else { fail++; sb.AppendLine($"Failed:  {file.path} -> {pak.pak}"); }
+                        // Replace inside MPQ (encrypt-on-write; preserve flags)
+                        try
+                        {
+                            byte[] data = await File.ReadAllBytesAsync(tmp);
+                            data = Mir3DCrypto.Crypto.Encrypt(data);
 
-                        SafeDelete(tempLocal);
+                            uint flags = 0;
+                            using (var archive = new StormLibSharp.MpqArchive(pakOnDisk, FileAccess.ReadWrite))
+                            {
+                                try { using var existing = archive.OpenFile(Disk(file.path)); flags = existing.GetFlags(); }
+                                catch { /* not present */ }
+
+                                archive.FileCreateFile(Disk(file.path), flags, data);
+                            }
+                            ok++;
+                        }
+                        catch { fail++; }
                     }
-                    catch (Exception ex)
+                    catch { fail++; }
+                    finally
                     {
-                        fail++;
-                        sb.AppendLine($"Error [{file.path}] : {ex.Message}");
-                        SafeDelete(tempLocal);
+                        try { if (File.Exists(tmp)) File.Delete(tmp); } catch { }
                     }
                 }
 
-                // 6) Report
-                MessageBox.Show($"Patch done.\r\nSuccess: {ok}\r\nFailed: {fail}");
-                TryAppendPatchLog(sb.ToString());
+                // --- Overwrite local PList.json with the remote one so future diffs match ---
+                try { await File.WriteAllTextAsync(localPlistPath, remoteJson); } catch { /* ignore */ }
+
+                // --- Clean temp_downloads at the end as well ---
+                try
+                {
+                    if (Directory.Exists(tempDir)) Directory.Delete(tempDir, recursive: true);
+                }
+                catch { /* ignore */ }
+
+                MessageBox.Show($"Patch done.\r\nSuccess: {ok}\r\nFailed: {fail}", "Patch",
+                    MessageBoxButtons.OK, fail == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Patch failed:\r\n{ex.Message}");
+                MessageBox.Show($"Patch failed:\r\n{ex.Message}", "Patch", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private readonly HashSet<string> _backedUp = new(StringComparer.OrdinalIgnoreCase);
-        private void EnsureBackupOnce(string pakOnDisk)
-        {
-            if (_backedUp.Contains(pakOnDisk)) return;
-            var bak = pakOnDisk + ".bak";
-            if (!File.Exists(bak)) File.Copy(pakOnDisk, bak, overwrite: false);
-            _backedUp.Add(pakOnDisk);
-        }
-
-        private void SafeDelete(string path)
-        {
-            try { if (File.Exists(path)) File.Delete(path); } catch { /* ignore */ }
-        }
-
-        private void TryAppendPatchLog(string lines)
-        {
-            try
-            {
-                // If you have a multiline TextBox called PatchLogTextBox:
-                // PatchLogTextBox.AppendText($"[{DateTime.Now:HH:mm:ss}] {lines}\r\n");
-                Debug.WriteLine(lines);
-            }
-            catch { /* ignore */ }
-        }
-
-        #endregion
     }
 }

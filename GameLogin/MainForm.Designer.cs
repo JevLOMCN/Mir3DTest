@@ -191,7 +191,7 @@ namespace GameLogin
             LoginAccountLabel.FillSelectedColor = Color.Transparent;
             LoginAccountLabel.Font = new Font("Arial", 12F);
             LoginAccountLabel.ForeColor = Color.LightSkyBlue;
-            LoginAccountLabel.Location = new Point(364, 254);
+            LoginAccountLabel.Location = new Point(364, 256);
             LoginAccountLabel.Margin = new Padding(4, 2, 4, 2);
             LoginAccountLabel.MinimumSize = new Size(1, 1);
             LoginAccountLabel.Name = "LoginAccountLabel";
@@ -276,7 +276,7 @@ namespace GameLogin
             RegisterAccountLabel.FillSelectedColor = Color.Transparent;
             RegisterAccountLabel.Font = new Font("Arial", 12F);
             RegisterAccountLabel.ForeColor = Color.LightSkyBlue;
-            RegisterAccountLabel.Location = new Point(364, 294);
+            RegisterAccountLabel.Location = new Point(364, 296);
             RegisterAccountLabel.Margin = new Padding(4, 2, 4, 2);
             RegisterAccountLabel.MinimumSize = new Size(1, 1);
             RegisterAccountLabel.Name = "RegisterAccountLabel";
@@ -1114,7 +1114,7 @@ namespace GameLogin
             PatchClientButton.FillSelectedColor = Color.Transparent;
             PatchClientButton.Font = new Font("Arial", 12F);
             PatchClientButton.ForeColor = Color.LightSkyBlue;
-            PatchClientButton.Location = new Point(364, 334);
+            PatchClientButton.Location = new Point(364, 336);
             PatchClientButton.Margin = new Padding(4, 2, 4, 2);
             PatchClientButton.MinimumSize = new Size(1, 1);
             PatchClientButton.Name = "PatchClientButton";
