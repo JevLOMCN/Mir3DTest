@@ -39,8 +39,10 @@
             decryptFolderToolStripMenuItem = new ToolStripMenuItem();
             syncClientTextsToolStripMenuItem = new ToolStripMenuItem();
             locateUPKNameToolStripMenuItem = new ToolStripMenuItem();
+            exportToolStripMenuItem = new ToolStripMenuItem();
+            compareToolStripMenuItem = new ToolStripMenuItem();
+            rePakToolStripMenuItem = new ToolStripMenuItem();
             donateToolStripMenuItem = new ToolStripMenuItem();
-            exportToolStripMenuItem1 = new ToolStripMenuItem();
             LblActiveFile = new ToolStripStatusLabel();
             statusStrip1 = new StatusStrip();
             MainEditor = new MainEditorControl();
@@ -51,7 +53,7 @@
             // 
             // Menu
             // 
-            Menu.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, toolsToolStripMenuItem, donateToolStripMenuItem, exportToolStripMenuItem1 });
+            Menu.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, toolsToolStripMenuItem, donateToolStripMenuItem });
             Menu.Location = new Point(0, 0);
             Menu.Name = "Menu";
             Menu.Size = new Size(1272, 24);
@@ -68,34 +70,34 @@
             // Menu_File_OpenGameFolder
             // 
             Menu_File_OpenGameFolder.Name = "Menu_File_OpenGameFolder";
-            Menu_File_OpenGameFolder.Size = new Size(180, 22);
+            Menu_File_OpenGameFolder.Size = new Size(173, 22);
             Menu_File_OpenGameFolder.Text = "Open Game Folder";
             Menu_File_OpenGameFolder.Click += Menu_File_OpenGameFolder_Click;
             // 
             // Menu_OpenFile
             // 
             Menu_OpenFile.Name = "Menu_OpenFile";
-            Menu_OpenFile.Size = new Size(180, 22);
+            Menu_OpenFile.Size = new Size(173, 22);
             Menu_OpenFile.Text = "Open";
             Menu_OpenFile.Click += Menu_OpenFile_Click;
             // 
             // Menu_Save
             // 
             Menu_Save.Name = "Menu_Save";
-            Menu_Save.Size = new Size(180, 22);
+            Menu_Save.Size = new Size(173, 22);
             Menu_Save.Text = "Save";
             Menu_Save.Click += Menu_Save_Click;
             // 
             // Menu_File_SaveAs
             // 
             Menu_File_SaveAs.Name = "Menu_File_SaveAs";
-            Menu_File_SaveAs.Size = new Size(180, 22);
+            Menu_File_SaveAs.Size = new Size(173, 22);
             Menu_File_SaveAs.Text = "Save As";
             Menu_File_SaveAs.Click += Menu_File_SaveAs_Click;
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { decryptFolderToolStripMenuItem, syncClientTextsToolStripMenuItem, locateUPKNameToolStripMenuItem });
+            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { decryptFolderToolStripMenuItem, syncClientTextsToolStripMenuItem, locateUPKNameToolStripMenuItem, exportToolStripMenuItem, compareToolStripMenuItem, rePakToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             toolsToolStripMenuItem.Size = new Size(47, 20);
             toolsToolStripMenuItem.Text = "Tools";
@@ -103,22 +105,43 @@
             // decryptFolderToolStripMenuItem
             // 
             decryptFolderToolStripMenuItem.Name = "decryptFolderToolStripMenuItem";
-            decryptFolderToolStripMenuItem.Size = new Size(169, 22);
+            decryptFolderToolStripMenuItem.Size = new Size(180, 22);
             decryptFolderToolStripMenuItem.Text = "Decrypt Folder";
             // 
             // syncClientTextsToolStripMenuItem
             // 
             syncClientTextsToolStripMenuItem.Name = "syncClientTextsToolStripMenuItem";
-            syncClientTextsToolStripMenuItem.Size = new Size(169, 22);
+            syncClientTextsToolStripMenuItem.Size = new Size(180, 22);
             syncClientTextsToolStripMenuItem.Text = "Sync Client Texts";
             syncClientTextsToolStripMenuItem.Click += SyncClientTextsToolStripMenuItem_Click;
             // 
             // locateUPKNameToolStripMenuItem
             // 
             locateUPKNameToolStripMenuItem.Name = "locateUPKNameToolStripMenuItem";
-            locateUPKNameToolStripMenuItem.Size = new Size(169, 22);
+            locateUPKNameToolStripMenuItem.Size = new Size(180, 22);
             locateUPKNameToolStripMenuItem.Text = "Locate UPK Name";
             locateUPKNameToolStripMenuItem.Click += locateUPKNameToolStripMenuItem_Click;
+            // 
+            // exportToolStripMenuItem
+            // 
+            exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            exportToolStripMenuItem.Size = new Size(180, 22);
+            exportToolStripMenuItem.Text = "Export";
+            exportToolStripMenuItem.Click += exportToolStripMenuItem_Click;
+            // 
+            // compareToolStripMenuItem
+            // 
+            compareToolStripMenuItem.Name = "compareToolStripMenuItem";
+            compareToolStripMenuItem.Size = new Size(180, 22);
+            compareToolStripMenuItem.Text = "Compare";
+            compareToolStripMenuItem.Click += compareToolStripMenuItem_Click;
+            // 
+            // rePakToolStripMenuItem
+            // 
+            rePakToolStripMenuItem.Name = "rePakToolStripMenuItem";
+            rePakToolStripMenuItem.Size = new Size(180, 22);
+            rePakToolStripMenuItem.Text = "RePak";
+            rePakToolStripMenuItem.Click += rePakToolStripMenuItem_Click;
             // 
             // donateToolStripMenuItem
             // 
@@ -126,13 +149,6 @@
             donateToolStripMenuItem.Size = new Size(57, 20);
             donateToolStripMenuItem.Text = "Donate";
             donateToolStripMenuItem.Click += donateToolStripMenuItem_Click;
-            // 
-            // exportToolStripMenuItem1
-            // 
-            exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
-            exportToolStripMenuItem1.Size = new Size(52, 20);
-            exportToolStripMenuItem1.Text = "Export";
-            exportToolStripMenuItem1.Click += exportToolStripMenuItem1_Click;
             // 
             // LblActiveFile
             // 
@@ -205,6 +221,8 @@
         private ToolStripMenuItem syncClientTextsToolStripMenuItem;
         private ToolStripMenuItem locateUPKNameToolStripMenuItem;
         private TextBox FilePathTextBox;
-        private ToolStripMenuItem exportToolStripMenuItem1;
+        private ToolStripMenuItem exportToolStripMenuItem;
+        private ToolStripMenuItem compareToolStripMenuItem;
+        private ToolStripMenuItem rePakToolStripMenuItem;
     }
 }

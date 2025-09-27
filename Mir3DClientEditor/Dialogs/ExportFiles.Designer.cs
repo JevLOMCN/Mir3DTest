@@ -38,13 +38,15 @@ namespace Mir3DClientEditor.Dialogs
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportFiles));
             topPanel = new Panel();
-            ExportPListCheckBox = new CheckBox();
             BtnSelectPak = new Button();
+            CreateStandalonePListButton = new Button();
             BtnSelectFolder = new Button();
             LblFilter = new Label();
             TxtFilter = new TextBox();
             LblStatus = new Label();
+            ExportPListCheckBox = new CheckBox();
             bottomPanel = new Panel();
+            ExportLabel = new Label();
             ExportBtn = new Button();
             progressBar1 = new ProgressBar();
             LblActiveFile = new Label();
@@ -53,15 +55,15 @@ namespace Mir3DClientEditor.Dialogs
             ColFile = new ColumnHeader();
             ColPak = new ColumnHeader();
             ColSize = new ColumnHeader();
-            ExportLabel = new Label();
             topPanel.SuspendLayout();
             bottomPanel.SuspendLayout();
             SuspendLayout();
             // 
             // topPanel
             // 
-            topPanel.Controls.Add(ExportPListCheckBox);
+            topPanel.AutoSize = true;
             topPanel.Controls.Add(BtnSelectPak);
+            topPanel.Controls.Add(CreateStandalonePListButton);
             topPanel.Controls.Add(BtnSelectFolder);
             topPanel.Controls.Add(LblFilter);
             topPanel.Controls.Add(TxtFilter);
@@ -73,16 +75,6 @@ namespace Mir3DClientEditor.Dialogs
             topPanel.Size = new Size(884, 48);
             topPanel.TabIndex = 2;
             // 
-            // ExportPListCheckBox
-            // 
-            ExportPListCheckBox.AutoSize = true;
-            ExportPListCheckBox.Location = new Point(790, 14);
-            ExportPListCheckBox.Name = "ExportPListCheckBox";
-            ExportPListCheckBox.Size = new Size(87, 19);
-            ExportPListCheckBox.TabIndex = 5;
-            ExportPListCheckBox.Text = "Export PList";
-            ExportPListCheckBox.UseVisualStyleBackColor = true;
-            // 
             // BtnSelectPak
             // 
             BtnSelectPak.AutoSize = true;
@@ -93,6 +85,16 @@ namespace Mir3DClientEditor.Dialogs
             BtnSelectPak.Text = "Select .pak...";
             BtnSelectPak.UseVisualStyleBackColor = true;
             BtnSelectPak.Click += BtnSelectPak_Click;
+            // 
+            // CreateStandalonePListButton
+            // 
+            CreateStandalonePListButton.Location = new Point(729, 14);
+            CreateStandalonePListButton.Name = "CreateStandalonePListButton";
+            CreateStandalonePListButton.Size = new Size(143, 23);
+            CreateStandalonePListButton.TabIndex = 5;
+            CreateStandalonePListButton.Text = "Create Standalone PList";
+            CreateStandalonePListButton.UseVisualStyleBackColor = true;
+            CreateStandalonePListButton.Click += CreateStandalonePListButton_Click;
             // 
             // BtnSelectFolder
             // 
@@ -132,19 +134,39 @@ namespace Mir3DClientEditor.Dialogs
             LblStatus.Text = "Select .pak files or a folder...";
             LblStatus.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // ExportPListCheckBox
+            // 
+            ExportPListCheckBox.AutoSize = true;
+            ExportPListCheckBox.Location = new Point(8, 41);
+            ExportPListCheckBox.Name = "ExportPListCheckBox";
+            ExportPListCheckBox.Size = new Size(162, 19);
+            ExportPListCheckBox.TabIndex = 5;
+            ExportPListCheckBox.Text = "Create PList during Export";
+            ExportPListCheckBox.UseVisualStyleBackColor = true;
+            // 
             // bottomPanel
             // 
+            bottomPanel.AutoSize = true;
+            bottomPanel.Controls.Add(ExportPListCheckBox);
             bottomPanel.Controls.Add(ExportLabel);
             bottomPanel.Controls.Add(ExportBtn);
             bottomPanel.Controls.Add(progressBar1);
             bottomPanel.Controls.Add(LblActiveFile);
             bottomPanel.Controls.Add(BtnClose);
             bottomPanel.Dock = DockStyle.Bottom;
-            bottomPanel.Location = new Point(0, 517);
+            bottomPanel.Location = new Point(0, 495);
             bottomPanel.Name = "bottomPanel";
             bottomPanel.Padding = new Padding(8);
-            bottomPanel.Size = new Size(884, 44);
+            bottomPanel.Size = new Size(884, 71);
             bottomPanel.TabIndex = 1;
+            // 
+            // ExportLabel
+            // 
+            ExportLabel.AutoSize = true;
+            ExportLabel.Location = new Point(176, 41);
+            ExportLabel.Name = "ExportLabel";
+            ExportLabel.Size = new Size(0, 15);
+            ExportLabel.TabIndex = 4;
             // 
             // ExportBtn
             // 
@@ -194,7 +216,7 @@ namespace Mir3DClientEditor.Dialogs
             FilesListView.GridLines = true;
             FilesListView.Location = new Point(0, 48);
             FilesListView.Name = "FilesListView";
-            FilesListView.Size = new Size(884, 469);
+            FilesListView.Size = new Size(884, 447);
             FilesListView.TabIndex = 0;
             FilesListView.UseCompatibleStateImageBehavior = false;
             FilesListView.View = View.Details;
@@ -217,17 +239,9 @@ namespace Mir3DClientEditor.Dialogs
             ColSize.TextAlign = HorizontalAlignment.Right;
             ColSize.Width = 100;
             // 
-            // ExportLabel
-            // 
-            ExportLabel.AutoSize = true;
-            ExportLabel.Location = new Point(396, 15);
-            ExportLabel.Name = "ExportLabel";
-            ExportLabel.Size = new Size(0, 15);
-            ExportLabel.TabIndex = 4;
-            // 
             // ExportFiles
             // 
-            ClientSize = new Size(884, 561);
+            ClientSize = new Size(884, 566);
             Controls.Add(FilesListView);
             Controls.Add(bottomPanel);
             Controls.Add(topPanel);
@@ -242,10 +256,12 @@ namespace Mir3DClientEditor.Dialogs
             bottomPanel.ResumeLayout(false);
             bottomPanel.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
         #endregion
 
         private CheckBox ExportPListCheckBox;
         private Label ExportLabel;
+        private Button CreateStandalonePListButton;
     }
 }

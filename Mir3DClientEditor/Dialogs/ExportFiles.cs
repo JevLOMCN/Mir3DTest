@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Mir3DClientEditor.FormValueEditors;
+using StormLibSharp;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Text.Json;
-using Mir3DClientEditor.FormValueEditors;
-using StormLibSharp;
+using System.Windows.Forms;
 
 namespace Mir3DClientEditor.Dialogs
 {
@@ -690,6 +691,99 @@ namespace Mir3DClientEditor.Dialogs
             var json = System.Text.Json.JsonSerializer.Serialize(payload, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
 
             File.WriteAllText(Path.Combine(exportRoot, "PList.json"), json, Encoding.UTF8);
+        }
+        #endregion
+
+        #region Create Standalone PList
+        private void CreateStandalonePListButton_Click(object sender, EventArgs e)
+        {
+            // Helper to post status to the single label without popping message boxes
+            void SetStatus(string text)
+            {
+                if (ExportLabel == null) return;
+                if (ExportLabel.IsHandleCreated)
+                    ExportLabel.BeginInvoke(new Action(() => ExportLabel.Text = text));
+            }
+
+            try
+            {
+                // Make sure we actually have paks in this dialog
+                if (_archives.Count == 0)
+                {
+                    SetStatus("No .pak files loaded. Use 'Select Pak' or 'Select Folder' first.");
+                    return;
+                }
+
+                // Decide which archives to include (same logic as Export)
+                var selectedArchives = new List<ArchiveHandle>();
+
+                if (_viewMode == ViewMode.PakList && FilesListView.SelectedItems.Count > 0)
+                {
+                    selectedArchives = FilesListView.SelectedItems
+                        .Cast<ListViewItem>()
+                        .Select(i => i.Tag as ArchiveHandle)
+                        .Where(h => h != null)
+                        .Distinct()!
+                        .ToList()!;
+                }
+                else if (_viewMode == ViewMode.PakContents && _currentPak != null)
+                {
+                    selectedArchives.Add(_currentPak);
+                }
+                else
+                {
+                    selectedArchives.AddRange(_archives);
+                }
+
+                if (selectedArchives.Count == 0)
+                {
+                    SetStatus("No paks selected to include in PList.json.");
+                    return;
+                }
+
+                // Ask where to write PList.json
+                using var fbd = new FolderBrowserDialog
+                {
+                    Description = $"Choose a folder to save PList.json for {selectedArchives.Count} pak(s)"
+                };
+                if (fbd.ShowDialog(this) != DialogResult.OK)
+                {
+                    SetStatus("PList creation cancelled.");
+                    return;
+                }
+
+                var exportRoot = fbd.SelectedPath;
+
+                // Build the JSON payload (reuse your DTO + helper)
+                var paks = selectedArchives
+                    .Select(BuildPakInfoFromHandle)
+                    .OrderBy(p => p.pakPath, StringComparer.OrdinalIgnoreCase)
+                    .ToArray();
+
+                // Root = first segment from first pakPath (fallback "MMOGame")
+                var rootName = "MMOGame";
+                if (paks.Length > 0)
+                {
+                    var first = paks[0].pakPath ?? "";
+                    var sep = first.IndexOf('\\');
+                    if (sep > 0) rootName = first.Substring(0, sep);
+                }
+
+                var payload = new { root = rootName, pakCount = paks.Length, paks };
+                var json = System.Text.Json.JsonSerializer.Serialize(
+                    payload,
+                    new System.Text.Json.JsonSerializerOptions { WriteIndented = true }
+                );
+
+                var outPath = Path.Combine(exportRoot, "PList.json");
+                File.WriteAllText(outPath, json, Encoding.UTF8);
+
+                SetStatus($"PList.json written: {outPath}");
+            }
+            catch (Exception ex)
+            {
+                SetStatus($"Failed to create PList.json: {ex.Message}");
+            }
         }
         #endregion
     }

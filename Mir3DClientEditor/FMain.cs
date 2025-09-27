@@ -193,9 +193,23 @@ namespace Mir3DClientEditor
             }
         }
 
-        private void exportToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using var dlg = new ExportFiles();
+            dlg.StartPosition = FormStartPosition.CenterParent;
+            dlg.ShowDialog(this);
+        }
+
+        private void compareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using var dlg = new CompareFiles();
+            dlg.StartPosition = FormStartPosition.CenterParent;
+            dlg.ShowDialog(this);
+        }
+
+        private void rePakToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using var dlg = new RePakFiles();
             dlg.StartPosition = FormStartPosition.CenterParent;
             dlg.ShowDialog(this);
         }
